@@ -1,11 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def fit(X, y, learn_rate=0.5, iterations=10):
     weights = np.zeros(1 + X.shape[1])
     errors = []
     weights_list = []
-    
+
     for _ in range(iterations):
         errors_count = 0
         for xi, target in zip(X, y):
@@ -17,11 +18,14 @@ def fit(X, y, learn_rate=0.5, iterations=10):
     weights_list.append(weights.copy())
     return weights, errors, weights_list
 
+
 def net_input(X, weights):
     return np.dot(X, weights[1:]) + weights[0]
 
+
 def predict(X, weights):
     return np.where(net_input(X, weights) >= 0.0, 1, 0)
+
 
 # Load the data from the ".dat" file
 data = np.genfromtxt("aerogerador (3).dat")
@@ -32,9 +36,9 @@ y = data[:, 1]  # Class label
 
 # Plot the data
 plt.scatter(X, y)
-plt.xlabel('Feature')
-plt.ylabel('Class')
-plt.title('Data')
+plt.xlabel("Feature")
+plt.ylabel("Class")
+plt.title("Data")
 plt.show()
 
 # Define the number of repetitions
@@ -52,7 +56,9 @@ for _ in range(num_repetitions):
     y_train, y_test = y_shuffle[:split_index], y_shuffle[split_index:]
 
     # Train the Perceptron model
-    weights, errors, weights_list = fit(X_train, y_train, learn_rate=0.01, iterations=50)
+    weights, errors, weights_list = fit(
+        X_train, y_train, learn_rate=0.01, iterations=50
+    )
 
     # Calculate the accuracy of the Perceptron
     y_pred_perceptron = predict(X_test, weights)
@@ -84,21 +90,21 @@ print(weights_combined_perceptron)
 
 # Plot the accuracy per round for the Perceptron
 plt.bar(range(num_repetitions), accuracies_perceptron)
-plt.xlabel('Round')
-plt.ylabel('Accuracy')
-plt.title('Accuracy per Round - Perceptron')
+plt.xlabel("Round")
+plt.ylabel("Accuracy")
+plt.title("Accuracy per Round - Perceptron")
 plt.show()
 
 # Plot the decision boundary of the Perceptron
-plt.scatter(X_test, y_test, color='blue', label='Test Data')
+plt.scatter(X_test, y_test, color="blue", label="Test Data")
 for weights in weights_combined_perceptron:
     slope = -weights[1] / weights[0]  # Slope is the only weight we have
     intercept = -weights[0] / weights[1]
     x_decision = np.linspace(X_test.min(), X_test.max(), 100)
     y_decision = slope * x_decision + intercept
-    plt.plot(x_decision, y_decision, linestyle='--', color='red', linewidth=0.5)
-plt.xlabel('Feature')
-plt.ylabel('Class')
-plt.title('Decision Boundary - Perceptron')
+    plt.plot(x_decision, y_decision, linestyle="--", color="red", linewidth=0.5)
+plt.xlabel("Feature")
+plt.ylabel("Class")
+plt.title("Decision Boundary - Perceptron")
 plt.legend()
 plt.show()

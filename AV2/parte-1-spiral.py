@@ -17,10 +17,10 @@ N, p = X.shape
 y = Data[:, 2].reshape(N, 1)
 
 # GRAFICO DE ESPALHAMENTO
-red_points = X[Data[:, 2] == 1]
-blue_points = X[Data[:, 2] == -1]
-plt.scatter(red_points[:, 0], red_points[:, 1], color="cyan", edgecolors="k")
-plt.scatter(blue_points[:, 0], blue_points[:, 1], color="magenta", edgecolors="k")
+cyan_points = X[Data[:, 2] == 1]
+magenta_points = X[Data[:, 2] == -1]
+plt.scatter(cyan_points[:, 0], cyan_points[:, 1], color="cyan", edgecolors="k")
+plt.scatter(magenta_points[:, 0], magenta_points[:, 1], color="magenta", edgecolors="k")
 plt.show()
 
 # NOVA DIMENSÃO DE X
@@ -185,9 +185,9 @@ plt.show()
 x_linha = np.linspace(np.min(X[1, :]), np.max(X[1, :]), 100)
 y_linha = -(w[0] + w[1] * x_linha) / w[2]
 
-red_points = X[Data[2, :] == 1]
-blue_points = X[Data[2, :] == -1]
-plt.scatter(red_points[:, 0], red_points[:, 1], color="cyan", edgecolors="k")
-plt.scatter(blue_points[:, 0], blue_points[:, 1], color="magenta", edgecolors="k")
+cyan_points = X[Data[2, :] == 1]
+magenta_points = X[Data[2, :] == -1]
+plt.scatter(cyan_points[:, 0], cyan_points[:, 1], color="cyan", edgecolors="k")
+plt.scatter(magenta_points[:, 0], magenta_points[:, 1], color="magenta", edgecolors="k")
 plt.plot(x_linha, y_linha, color="red", label="Linha de Decisão")
 plt.show()

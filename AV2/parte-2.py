@@ -50,7 +50,7 @@ def predict_adaline(X, weights):
 
 # Load the data from the URL
 glass_data = np.genfromtxt(
-    "https://archive.ics.uci.edu/ml/machine-learning-databases/glass/glass.data",
+    "https://archive.ics.uci.edu/ml/datasets/Ozone+Level+Detection",
     delimiter=",",
 )
 # Selecting features 1 and 2

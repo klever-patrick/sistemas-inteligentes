@@ -96,13 +96,13 @@ plt.title("Accuracy per Round - Perceptron")
 plt.show()
 
 # Plot the decision boundary of the Perceptron
-plt.scatter(X_test, y_test, color="blue", label="Test Data")
+plt.scatter(X_test, y_test, color="black", label="Test Data")
 for weights in weights_combined_perceptron:
     slope = -weights[1] / weights[0]  # Slope is the only weight we have
     intercept = -weights[0] / weights[1]
     x_decision = np.linspace(X_test.min(), X_test.max(), 100)
     y_decision = slope * x_decision + intercept
-    plt.plot(x_decision, y_decision, linestyle="--", color="red", linewidth=0.5)
+    plt.plot(x_decision, y_decision, linestyle="--", color="green", linewidth=0.5)
 plt.xlabel("Feature")
 plt.ylabel("Class")
 plt.title("Decision Boundary - Perceptron")

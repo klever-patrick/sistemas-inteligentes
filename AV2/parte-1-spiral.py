@@ -19,8 +19,8 @@ y = Data[:, 2].reshape(N, 1)
 # GRAFICO DE ESPALHAMENTO
 red_points = X[Data[:, 2] == 1]
 blue_points = X[Data[:, 2] == -1]
-plt.scatter(red_points[:, 0], red_points[:, 1], color="red", edgecolors="k")
-plt.scatter(blue_points[:, 0], blue_points[:, 1], color="blue", edgecolors="k")
+plt.scatter(red_points[:, 0], red_points[:, 1], color="cyan", edgecolors="k")
+plt.scatter(blue_points[:, 0], blue_points[:, 1], color="magenta", edgecolors="k")
 plt.show()
 
 # NOVA DIMENSÃO DE X
@@ -187,7 +187,7 @@ y_linha = -(w[0] + w[1] * x_linha) / w[2]
 
 red_points = X[Data[2, :] == 1]
 blue_points = X[Data[2, :] == -1]
-plt.scatter(red_points[:, 0], red_points[:, 1], color="red", edgecolors="k")
-plt.scatter(blue_points[:, 0], blue_points[:, 1], color="blue", edgecolors="k")
-plt.plot(x_linha, y_linha, color="green", label="Linha de Decisão")
+plt.scatter(red_points[:, 0], red_points[:, 1], color="cyan", edgecolors="k")
+plt.scatter(blue_points[:, 0], blue_points[:, 1], color="magenta", edgecolors="k")
+plt.plot(x_linha, y_linha, color="red", label="Linha de Decisão")
 plt.show()

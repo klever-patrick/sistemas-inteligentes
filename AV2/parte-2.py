@@ -64,10 +64,10 @@ y = y[y <= 2]
 y = np.where(y == 1, -1, 1)
 
 plt.scatter(
-    X[y == -1][:, 0], X[y == -1][:, 1], label="Glass Type 1", marker="o", color="red"
+    X[y == -1][:, 0], X[y == -1][:, 1], label="Glass Type 1", marker="o", color="yellow"
 )
 plt.scatter(
-    X[y == 1][:, 0], X[y == 1][:, 1], label="Glass Type 2", marker="x", color="blue"
+    X[y == 1][:, 0], X[y == 1][:, 1], label="Glass Type 2", marker="x", color="green"
 )
 plt.xlabel("Feature 1")
 plt.ylabel("Feature 2")
@@ -98,7 +98,7 @@ plt.show()
 
 def plot_decision_regions(X, y, predict_func, weights, resolution=0.02):
     markers = ("s", "x", "o", "^", "v")
-    colors = ("red", "blue", "lightgreen", "gray", "cyan")
+    colors = ("yellow", "green", "lightgreen", "gray", "cyan")
     cmap = colors[: len(np.unique(y))]
 
     x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1

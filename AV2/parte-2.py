@@ -160,4 +160,3 @@ plt.title("Decision Regions - Adaline")
 
 plt.tight_layout()
 plt.show()
-
